@@ -1,0 +1,27 @@
+{
+  "name": "ban-autocomplete",
+  "version": "1.0.0",
+  "description": "Allow creation of input address autocomplete using BAN as datasource (France only)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Baben01/ban-autocomplete.git"
+  },
+  "keywords": [
+    "ban",
+    "autocomplete",
+    "address"
+  ],
+  "author": "Benjamin Normand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Baben01/ban-autocomplete/issues"
+  },
+  "homepage": "https://github.com/Baben01/ban-autocomplete#readme",
+  "dependencies": {
+    "@tarekraafat/autocomplete.js": "^10.2.1"
+  }
+}
