@@ -1,11 +1,14 @@
 
 import autoComplete from "@tarekraafat/autocomplete.js";
-function BANAutocomplete()
+function BANAutocomplete(autoCompleteName = "autoComplete", placeholder = "Localisation...", selector = "#autoComplete")
 {
 	"use strict";
 	var autoCompleteJS = {};
 	var banApiEndpoint = "https://api-adresse.data.gouv.fr/"
 	autoCompleteConfig = {
+		name: autoCompleteName,
+		placeholder: placeholder,
+		selector: selector,
 		threshold: 3,
 		searchEngine: "strict",
 		data: {
@@ -25,7 +28,7 @@ function BANAutocomplete()
 		  element: (list, data) => {
 			const info = document.createElement("p");
 			if (data.results.length <= 0) {
-			  info.innerHTML = `Searching...`;
+			  info.innerHTML = `Recherche en cours ...`;
 			}
 			list.prepend(info);
 		  },
@@ -63,22 +66,39 @@ function BANAutocomplete()
 	}
 	
 	this.init = function () {
-		autoCompleteJS = new autoComplete(config);
+		if(banApiEndpoint && banApiEndpoint != "")
+			autoCompleteJS = new autoComplete(config);
+		else
+			return "Error : BAN API not defined."
 	}
 
-	this.setName = function(value) {
-		autoCompleteConfig.name = value;
-	}
-	
-	this.setSelector = function(value) {
-		autoCompleteConfig.selector = value;
-	}
-	
-	this.setPlaceholder = function(value) {
-		autoCompleteConfig.placeholder = value;
-	}
-
-	this.setUrl = function (url) {
+	/*
+	 * Change BAN API Endpoint for custom one. 
+	 * Default : "https://api-adresse.data.gouv.fr/"
+	 */
+	this.changeBanAPIEndpoint = function (url) {
 		banApiEndpoint = url;
+	}
+
+	/*
+	 * Change the default template for rendering default result Item. 
+	 * resultItem must be an object. 
+	 */
+	this.changeTemplateResultItem = function (resultItem) {
+		if(typeof resultItem === "object")
+			autoCompleteConfig.resultItem = resultItem;
+		else
+			return "Error : Must be a Object."
+	}
+
+	/*
+	 * Change the default template for rendering result list. 
+	 * resultsList must be a object. 
+	 */
+	this.changeTemplateResultList = function (resultsList) {
+		if(typeof resultsList === "object")
+			autoCompleteConfig.resultsList = resultsList;
+		else
+			return "Error : Must be a Object."
 	}
 }
