@@ -2,7 +2,6 @@
 import autoComplete from "@tarekraafat/autocomplete.js";
 function BANAutocomplete(autoCompleteName = "autoComplete", placeholder = "Localisation...", selector = "#autoComplete")
 {
-	"use strict";
 	var autoCompleteJS = {};
 	var banApiEndpoint = "https://api-adresse.data.gouv.fr/"
 	autoCompleteConfig = {

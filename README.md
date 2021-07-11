@@ -18,8 +18,9 @@ npm install ban-autocomplete
 #### Utilisation simple
 
 ```javascript
+import BANAutocomplete from 'ban-autocomplete';
 //                                       (name,              placeholder,       selector)
-let banAutoComplete = new BANAutocomplete("BANAutoComplete", "Localisation..." ,"#inputID")
+let banAutoComplete = new BANAutocomplete("BANAutoComplete", "Localisation..." ,"#inputID");
 
 banAutoComplete.init();
 ```
