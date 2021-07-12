@@ -1,5 +1,6 @@
 
-import autoComplete from "@tarekraafat/autocomplete.js";
+const autoComplete = require("@tarekraafat/autocomplete.js");
+
 function BANAutocomplete(autoCompleteName = "autoComplete", placeholder = "Localisation...", selector = "#autoComplete")
 {
 	var autoCompleteJS = {};
@@ -66,7 +67,7 @@ function BANAutocomplete(autoCompleteName = "autoComplete", placeholder = "Local
 	
 	this.init = function () {
 		if(banApiEndpoint && banApiEndpoint != "")
-			autoCompleteJS = new autoComplete(config);
+			autoCompleteJS = new autoComplete(autoCompleteConfig);
 		else
 			return "Error : BAN API not defined."
 	}
@@ -101,3 +102,5 @@ function BANAutocomplete(autoCompleteName = "autoComplete", placeholder = "Local
 			return "Error : Must be a Object."
 	}
 }
+
+module.exports = BANAutocomplete;

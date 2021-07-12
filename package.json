@@ -1,6 +1,6 @@
 {
   "name": "ban-autocomplete",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Allow creation of input address autocomplete using BAN as datasource (France only)",
   "main": "index.js",
   "scripts": {
