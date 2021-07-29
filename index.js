@@ -16,7 +16,11 @@ function BANAutocomplete(autoCompleteName = "autoComplete", placeholder = "Local
 			try {
 			  const source = await fetch(`${banApiEndpoint}search/?type=housenumber&autocomplete=1&limit=50&q=${query}`);
 			  const data = await source.json();
-			  return data.features.map(el => el.properties);
+			  return data.features.map(el => {
+				  let _el = el.properties;
+				  _el.geometry = el.geometry;
+				  return _el;
+				});
 			} catch (error) {
 			  return error;
 			}
